@@ -1,0 +1,18 @@
+﻿@model ContactInfoIndexVM
+@{
+    bool disableInput = !User.IsInRole("Admin");
+}
+
+<h1>Contact Info</h1>
+
+<form asp-controller="ContactInfo" asp-action="Index" method="post">
+    <div class="form-group mt-5">
+        <label for="email1">Email address</label>
+        <input disabled="@disableInput" asp-for="Email" class="form-control" id="email1">
+    </div>
+    <div class="form-group mt-1">
+        <label for="number2">Phone Number</label>
+        <input disabled="@disableInput" asp-for="PhoneNumber" class="form-control" id="number2">
+    </div>
+    <button disabled="@disableInput" type="submit" class="btn btn-warning mt-3">Update</button>
+</form>
